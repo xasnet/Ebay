@@ -17,25 +17,25 @@ ALTER TABLE IF EXISTS public.products
     OWNER to postgres;
 
 COMMENT ON TABLE public.products
-    IS 'Список покупателей';
+    IS 'РЎРїРёСЃРѕРє РїРѕРєСѓРїР°С‚РµР»РµР№';
 
 COMMENT ON COLUMN public.products.product_id
-    IS 'Идентификатор продукта. Первичный ключ';
+    IS 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїСЂРѕРґСѓРєС‚Р°. РџРµСЂРІРёС‡РЅС‹Р№ РєР»СЋС‡';
 
 COMMENT ON COLUMN public.products.product_name
-    IS 'Наименование продукта';
+    IS 'РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р°';
 
 COMMENT ON COLUMN public.products.price
-    IS 'Цена';
+    IS 'Р¦РµРЅР°';
 
 COMMENT ON COLUMN public.products.created_at
-    IS 'Время создания записи в таблице';
+    IS 'Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Рµ';
 
 INSERT INTO public.products(product_name, price )
-VALUES                     ('Кофе'      , 300.50),
-                           ('Сыр'       , 555.00),
-                           ('Хлеб'      , 90.30 ),
-                           ('Молоко'    , 155.00),
-                           ('Шоколад'   , 200.25);
+VALUES                     ('РљРѕС„Рµ'      , 300.50),
+                           ('РЎС‹СЂ'       , 555.00),
+                           ('РҐР»РµР±'      , 90.30 ),
+                           ('РњРѕР»РѕРєРѕ'    , 155.00),
+                           ('РЁРѕРєРѕР»Р°Рґ'   , 200.25);
 
 --

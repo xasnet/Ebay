@@ -26,22 +26,22 @@ ALTER TABLE IF EXISTS public.order_items
     OWNER to postgres;
 
 COMMENT ON TABLE public.order_items
-    IS 'Состав заказов';
+    IS 'РЎРѕСЃС‚Р°РІ Р·Р°РєР°Р·РѕРІ';
 
 COMMENT ON COLUMN public.order_items.order_item_id
-    IS 'Идентификатор состава заказа. Первичный ключ';
+    IS 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРѕСЃС‚Р°РІР° Р·Р°РєР°Р·Р°. РџРµСЂРІРёС‡РЅС‹Р№ РєР»СЋС‡';
 
 COMMENT ON COLUMN public.order_items.order_id
-    IS 'Идентификатор заказа. Внешний ключ';
+    IS 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РєР°Р·Р°. Р’РЅРµС€РЅРёР№ РєР»СЋС‡';
 
 COMMENT ON COLUMN public.order_items.product_id
-    IS 'Идентификатор продукта. Внешний ключ';
+    IS 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїСЂРѕРґСѓРєС‚Р°. Р’РЅРµС€РЅРёР№ РєР»СЋС‡';
 
 COMMENT ON COLUMN public.order_items.quantity
-    IS 'Количество';
+    IS 'РљРѕР»РёС‡РµСЃС‚РІРѕ';
 
 COMMENT ON COLUMN public.order_items.created_at
-    IS 'Время создания записи в таблице';
+    IS 'Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Рµ';
 
 
 INSERT INTO public.order_items(order_id, product_id, quantity)
