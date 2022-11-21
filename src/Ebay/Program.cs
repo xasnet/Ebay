@@ -9,10 +9,10 @@ using (var dbContext = new EbayContext())
     {
         #region Retrieving and displaying data
         Console.WriteLine("Retrieving and displaying data");
-        Table<Product>.CreateTable(dbContext.Products);
-        Table<Customer>.CreateTable(dbContext.Customers);
-        Table<Order>.CreateTable(dbContext.Orders);
-        Table<OrderItem>.CreateTable(dbContext.OrderItems);
+        Table<Product>.Create(dbContext.Products);
+        Table<Customer>.Create(dbContext.Customers);
+        Table<Order>.Create(dbContext.Orders);
+        Table<OrderItem>.Create(dbContext.OrderItems);
         #endregion
 
         Console.WriteLine();

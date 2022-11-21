@@ -5,7 +5,7 @@ namespace Ebay
 {
     public static class Table<T> where T : class, new()
     {
-        public static void CreateTable(DbSet<T> guide)
+        public static void Create(DbSet<T> guide)
         {
             var tableName = typeof(T).ToString().Split(".").Last();
 
