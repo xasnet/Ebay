@@ -29,6 +29,7 @@ namespace Ebay
 
             table.Write();
         }
+
         public static T CreateAttribute()
         {
             T newItem = new();
