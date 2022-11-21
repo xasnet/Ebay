@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ebay.DataAccess
 {
-    public partial class ebayContext : DbContext
+    public class EbayContext : DbContext
     {
-        public ebayContext()
+        public EbayContext()
         {
         }
 
-        public ebayContext(DbContextOptions<ebayContext> options)
+        public EbayContext(DbContextOptions<EbayContext> options)
             : base(options)
         {
         }
@@ -166,10 +166,6 @@ namespace Ebay.DataAccess
                     .HasColumnName("product_name")
                     .HasComment("Наименование продукта");
             });
-
-            OnModelCreatingPartial(modelBuilder);
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

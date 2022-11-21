@@ -3,7 +3,7 @@
     /// <summary>
     /// Список покупателей
     /// </summary>
-    public partial class Customer
+    public class Customer
     {
         public Customer()
         {

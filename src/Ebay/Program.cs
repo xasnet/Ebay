@@ -3,7 +3,7 @@ using Ebay.DataAccess;
 using Ebay.Dtos;
 using Ebay.Models;
 
-using (var dbContext = new ebayContext())
+using (var dbContext = new EbayContext())
 {
     try
     {

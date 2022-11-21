@@ -3,7 +3,7 @@
     /// <summary>
     /// Список покупателей
     /// </summary>
-    public partial class Product
+    public class Product
     {
         /// <summary>
         /// Идентификатор продукта. Первичный ключ

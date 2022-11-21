@@ -40,7 +40,8 @@ namespace Ebay
                 while (isWork)
                 {
                     isWork = false;
-                    var columnType = newItem.GetType().GetProperty(columnName).PropertyType;
+                    var columnProperty = newItem.GetType().GetProperty(columnName)!;
+                    var columnType = columnProperty.PropertyType;
 
                     var attributeName = columnType == typeof(DateOnly) ? $"{columnName} (format: YYYY-MM-DD) : " : $"{columnName} : ";
 
@@ -53,7 +54,7 @@ namespace Ebay
                         var value = Int32.TryParse(enteredData, out var intValue);
                         if (value)
                         {
-                            newItem.GetType().GetProperty(columnName).SetValue(newItem, intValue);
+                            columnProperty.SetValue(newItem, intValue);
                         }
                         else
                         {
@@ -64,14 +65,14 @@ namespace Ebay
                     else if (columnType == typeof(string))
                     {
                         var value = enteredData;
-                        newItem.GetType().GetProperty(columnName).SetValue(newItem, value);
+                        columnProperty.SetValue(newItem, value);
                     }
                     else if (columnType == typeof(decimal))
                     {
                         var value = Decimal.TryParse(enteredData, out var decimalValue);
                         if (value)
                         {
-                            newItem.GetType().GetProperty(columnName).SetValue(newItem, decimalValue);
+                            columnProperty.SetValue(newItem, decimalValue);
                         }
                         else
                         {
@@ -84,7 +85,7 @@ namespace Ebay
                         var value = DateOnly.TryParse(enteredData, out var dateOnlyValue);
                         if (value)
                         {
-                            newItem.GetType().GetProperty(columnName).SetValue(newItem, dateOnlyValue);
+                            columnProperty.SetValue(newItem, dateOnlyValue);
                         }
                         else
                         {

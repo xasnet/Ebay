@@ -3,7 +3,7 @@
     /// <summary>
     /// Список заказов
     /// </summary>
-    public partial class Order
+    public class Order
     {
         /// <summary>
         /// Идентификатор заказа. Первичный ключ
