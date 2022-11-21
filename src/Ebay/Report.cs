@@ -47,7 +47,7 @@ namespace Ebay
 
                     Console.Write($"{attributeName}");
 
-                    var enteredData = Console.ReadLine().Trim();
+                    var enteredData = Console.ReadLine()!.Trim();
 
                     if (columnType == typeof(int))
                     {

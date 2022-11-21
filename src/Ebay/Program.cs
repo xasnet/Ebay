@@ -2,8 +2,28 @@
 using Ebay.DataAccess;
 using Ebay.Dtos;
 using Ebay.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
-using (var dbContext = new EbayContext())
+
+#region Get Connection string
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .Build();
+
+var postgreConnectionString = config["ConnectionString"];
+
+if (postgreConnectionString == null)
+{
+    throw new Exception("Can not find secrets.json");
+}
+
+var options = new DbContextOptionsBuilder<EbayContext>()
+    .UseNpgsql(postgreConnectionString)
+    .Options;
+#endregion
+
+using (var dbContext = new EbayContext(options))
 {
     try
     {
@@ -25,7 +45,7 @@ using (var dbContext = new EbayContext())
 
         Console.WriteLine();
         Console.WriteLine("Do you want to continue (Yes)");
-        var cmdExit = Console.ReadLine().Trim();
+        var cmdExit = Console.ReadLine()!.Trim();
 
         if (cmdExit.ToLower() != "Yes".ToLower())
         {
@@ -49,7 +69,7 @@ using (var dbContext = new EbayContext())
             var guideList = tables.ConvertAll(g => g.ToLower());
 
             Console.WriteLine($"Enter table name of : {guides}: ");
-            var guide = Console.ReadLine().Trim();
+            var guide = Console.ReadLine()!.Trim();
 
             if (!guideList.Contains(guide.ToLower()))
             {
@@ -118,7 +138,7 @@ using (var dbContext = new EbayContext())
 
                 Console.WriteLine();
                 Console.WriteLine("Do you want to exit (Yes/No) ?");
-                var cmd = Console.ReadLine().Trim();
+                var cmd = Console.ReadLine()!.Trim();
 
                 if (!cmdList.Contains(cmd.ToLower()))
                 {
@@ -142,5 +162,4 @@ using (var dbContext = new EbayContext())
     {
         throw new Exception($"Error : {ex.Message}");
     }
-
 }
